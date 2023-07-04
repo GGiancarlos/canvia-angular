@@ -1,0 +1,30 @@
+<div class="modal-header bg-primary border-primary text-white" ngbAutofocus>
+  <strong>{{ tituloComponenteHijo }}</strong>
+  <button type="button" class="close" (click)="activeModal.close('Close click')">
+    <i class="fas fa-times text-white"></i>
+  </button>
+</div>
+<div class="modal-body">
+
+  <div class="row">
+    <div class="col-6 col-md-12">
+
+      <p>El nombre es: {{ nombreComponenteHijo }}</p>
+
+      <button type="button" class="btn btn-primary" (click)="eventoBtnSalidaDesdeComponenteHijo()">Salida Desde Componente Hijo</button>
+
+      <br><br>
+
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <div class="col text-center">
+      <button type="button" class="btn btn-primary"
+              (click)="activeModal.close('Close click')">
+        Cancelar
+      </button>
+    </div>
+  </div>
+
+</div>

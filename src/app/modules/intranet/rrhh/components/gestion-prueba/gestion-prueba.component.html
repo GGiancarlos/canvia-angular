@@ -1,0 +1,205 @@
+<div class="card border-primary">
+  <div class="card-header text-white bg-primary">
+    <h6>GESTIÓN PRUEBA</h6>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-6 col-md-12">
+
+        <hr>
+        <h5 class="card-title">D23) Directivas:</h5>
+        <hr>
+
+        <input type="text"
+               class="form-control"
+               [ngStyle]="{'border-color': esValido ? '#dc3545' : false, 'font-size.px':20}"
+               [ngClass]="{'text-primary': esValido}"
+               maxLength="50"
+               placeholder="Caja de texto 1">
+
+        <span class="text-danger" *ngIf="esValido">Campo obligatorio 1</span>
+
+        <br><br>
+
+        <input type="text"
+               class="form-control"
+               [ngClass]="{'is-invalid': esValido}"
+               [ngStyle]="{'color': esValido ? '#007bff' : false, 'font-size.px':20}"
+               maxLength="50"
+               placeholder="Caja de texto 2">
+
+        <span class="text-danger" *ngIf="esValido">Campo obligatorio 2</span>
+
+        <br><br>
+
+        <input type="text"
+               class="form-control"
+               [ngClass]="{'border-danger': esValido}"
+               maxLength="50"
+               placeholder="Caja de texto 3">
+
+        <span class="text-danger" *ngIf="esValido">Campo obligatorio 3</span>
+
+        <br><br>
+
+        <input type="text"
+               class="form-control"
+               [class.border-danger]="esValido"
+               maxLength="50"
+               placeholder="Caja de texto 4">
+
+        <span class="text-danger" *ngIf="esValido">Campo obligatorio 4</span>
+
+        <br><br>
+
+        <ul *ngFor="let persona of personas; let i = index">
+          <li>Código: {{ persona.id }} - Nombre:  {{ persona.nombre }} - Index: {{ i }}</li>
+        </ul>
+
+        <br><br>
+
+        <table class="table table-bordered">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Código</th>
+            <th scope="col">Nombre</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let persona of personas; let i = index">
+            <th scope="row">{{ i }}</th>
+            <td>{{ persona.id }}</td>
+            <td>{{ persona.nombre }}</td>
+          </tr>
+          </tbody>
+        </table>
+
+        <br><br>
+
+        <select class="form-control">
+          <option value="">Seleccionar</option>
+          <option [value]="persona.id"
+                  *ngFor="let persona of personas; let i = index"
+                  [ngSwitch]="persona.pais">
+            <span *ngSwitchCase="'PE'" class="text-danger">{{ persona.nombre }} - (Nacionalidad Peruana)</span>
+            <span *ngSwitchCase="'CO'" class="text-warning">{{ persona.nombre }} - (Extranjero)</span>
+            <span *ngSwitchDefault class="text-primary">{{ persona.nombre }} - (No Definido)</span>
+          </option>
+        </select>
+
+        <br><br>
+
+        <ul *ngFor="let persona of personas; let i = index" [ngSwitch]="persona.pais">
+          <li *ngSwitchCase="'PE'" class="text-danger">Código: {{ persona.id }} - Nombre:  {{ persona.nombre }} -
+            Index: {{ i }}</li>
+          <li *ngSwitchCase="'CO'" class="text-warning">Código: {{ persona.id }} - Nombre:  {{ persona.nombre }} -
+            Index: {{ i }}</li>
+          <li *ngSwitchDefault class="text-primary">Código: {{ persona.id }} - Nombre:  {{ persona.nombre }} -
+            Index: {{ i }}</li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6 col-md-12">
+
+        <hr>
+        <h5 class="card-title">D24) Interpolacion de Strings, Binding de Propiedades y Eventos:</h5>
+        <hr>
+
+        <span>{{ textoInterporlacionString }}</span>
+
+        <br><br>
+
+        <input type="text"
+               class="form-control"
+               [maxLength]="tamanioCajaTextoBindingPropiedad"
+               [placeholder]="placeholderCajaTextoBindingPropiedad">
+
+        <br><br>
+
+        <button type="button" class="btn btn-primary"
+                (click)="eventoBtnBindingEvento()">
+          Guardar
+        </button>
+
+        <br><br>
+
+        <input type="text"
+               class="form-control"
+               (keyup)="eventoInputBindingEvento($event)"
+               maxLength="50"
+               placeholder="Escribir texto Binding Evento">
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6 col-md-12">
+
+        <hr>
+        <h5 class="card-title">D25) Entradas y Salidas de Componentes (Input, Output):</h5>
+        <hr>
+
+        <app-gestion-prueba-hijo
+          tituloComponenteHijo="COMPONENTE PRUEBA HIJO"
+          nombreComponenteHijo="Hola Mundo"
+          (eventoEventEmitterOutput)="eventoBtnInputOutput($event)"></app-gestion-prueba-hijo>
+
+        <br><br>
+
+        <button type="button" class="btn btn-primary"
+                (click)="eventoBtnInputOutputModal()">
+          Abrir Componente Hijo - Modal
+        </button>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6 col-md-12">
+
+        <hr>
+        <h5 class="card-title">D26) Servicios:</h5>
+        <hr>
+
+        <button type="button" class="btn btn-primary"
+                (click)="eventoBtnProcesarServicioSinParametro()">
+          Procesar Servicio Sin Parametro
+        </button>
+
+        <br><br>
+
+        <button type="button" class="btn btn-primary"
+                (click)="eventoBtnProcesarServicioConParametro()">
+          Procesar Servicio Con Parametro
+        </button>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6 col-md-12">
+
+        <hr>
+        <h5 class="card-title">D27) Tuberias - Pipes:</h5>
+        <hr>
+
+        <p>LowerCasePipe: {{ "TRABAJANDO CON ANGULAR" | lowercase }}</p>
+        <p>UpperCasePipe: {{ textoUpperCasePipe | uppercase }}</p>
+
+        <p>JsonPipe: {{ personas | json }}</p>
+
+        <p>DatePipe1: {{ fecha | date }}</p>
+        <p>DatePipe2: {{ fecha | date:'fullDate' }}</p>
+        <p>DatePipe3: {{ fecha | date:'dd/MM/yyyy' }}</p>
+        <p>DatePipe3: {{ fecha | date:'dd/MM/yyyy hh:mm' }}</p>
+
+      </div>
+    </div>
+
+
+  </div>
+</div>
