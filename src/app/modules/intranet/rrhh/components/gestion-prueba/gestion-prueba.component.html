@@ -200,6 +200,149 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-6 col-md-12">
+
+        <hr>
+        <h5 class="card-title">D30) Navegación – vista y controlador:</h5>
+        <hr>
+
+        <button type="button" class="btn btn-link" routerLink="/rrhh/gestion-persona">Ir a otra vista</button>
+
+        <button type="button" class="btn btn-primary" (click)="eventoBtnIrAOtraVista()">Ir a otra vista controlador</button>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6 col-md-12">
+
+        <hr>
+        <h5 class="card-title">D32) Formularios – NgModel:</h5>
+        <hr>
+
+        <form novalidate #formaPersonaNgModel="ngForm">
+
+          Nombre:
+          <input type="text" class="form-control"
+                 name="nombreUsuario"
+                 [(ngModel)]="nombreUsuarioNgModel"
+                 #nombreUsuario="ngModel"
+                 [ngClass]="{'is-invalid': nombreUsuario.errors?.['required'] && nombreUsuario.touched}"
+                 placeholder="Ingresar nombre"
+                 required
+                 maxlength="20">
+
+          <div class="text-danger" *ngIf="nombreUsuario.errors?.['required'] && nombreUsuario.touched">
+            Campo obligatorio
+          </div>
+
+          <div class="text-danger" *ngIf="nombreUsuario.value?.length==20 && nombreUsuario.touched">
+            Tamaño m&aacute;ximo es 20
+          </div>
+
+          <br>
+
+          Texto ingresado: {{ nombreUsuarioNgModel }}
+
+          <br>
+
+          <button type="button" class="btn btn-primary" (click)="eventoBtnValidarNgModel(formaPersonaNgModel)">Validar NgModel</button>
+
+        </form>
+
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-6 col-md-12">
+
+        <hr>
+        <h5 class="card-title">D33) Formularios Reactivos – FormBuilder, FormGroup:</h5>
+        <hr>
+
+        <p class="font-weight-bold">FormGroup:</p>
+
+        <form [formGroup]="formaPersona">
+
+          Nombre:
+          <input type="text" class="form-control"
+                 [ngClass]="{'is-invalid': formaPersona.get('nombre')?.hasError('required') && formaPersona.get('nombre')?.touched}"
+                 formControlName="nombre"
+                 placeholder="Ingresar nombre">
+
+          <div class="text-danger" *ngIf="formaPersona.get('nombre')?.hasError('required') &&
+                    formaPersona.get('nombre')?.touched">
+            Campo obligatorio
+          </div>
+
+          <div class="text-danger" *ngIf="formaPersona.get('nombre')?.hasError('maxlength') &&
+                    formaPersona.get('nombre')?.touched">
+            Tamaño m&aacute;ximo es 20
+          </div>
+
+          Apellido:
+          <input type="text" class="form-control"
+                 [ngClass]="{'is-invalid': formaPersona.get('apellido')?.hasError('required') && formaPersona.get('apellido')?.touched}"
+                 formControlName="apellido"
+                 placeholder="Ingresar apellido">
+
+          <div class="text-danger" *ngIf="formaPersona.get('apellido')?.hasError('required') &&
+                    formaPersona.get('apellido')?.touched">
+            Campo obligatorio
+          </div>
+
+          <div class="text-danger" *ngIf="formaPersona?.get('apellido')?.hasError('maxlength') &&
+                    formaPersona.get('apellido')?.touched">
+            Tamaño m&aacute;ximo es 20
+          </div>
+
+          <br>
+
+          Texto ingresado: {{ formaPersona.get('nombre')?.value }}
+
+          <br>
+
+          <button type="button" class="btn btn-primary" (click)="eventoBtnValidar()">Validar</button>
+
+        </form>
+
+        <br>
+
+        <p class="font-weight-bold">FormBuilder:</p>
+
+        <form [formGroup]="formaPersonaBuilder">
+
+          Nombre:
+          <input type="text" class="form-control"
+                 [ngClass]="{'is-invalid': formaPersonaBuilder.get('nombre')?.hasError('required') && formaPersonaBuilder.get('nombre')?.touched}"
+                 formControlName="nombre"
+                 placeholder="Ingresar nombre">
+
+          <div class="text-danger" *ngIf="formaPersonaBuilder.get('nombre')?.hasError('required') &&
+                    formaPersonaBuilder.get('nombre')?.touched">
+            Campo obligatorio
+          </div>
+
+          <div class="text-danger" *ngIf="formaPersonaBuilder.get('nombre')?.hasError('maxlength') &&
+                    formaPersonaBuilder.get('nombre')?.touched">
+            Tamaño m&aacute;ximo es 20
+          </div>
+
+          <br>
+
+          Texto ingresado: {{ formaPersonaBuilder.get('nombre')?.value }}
+
+          <br>
+
+          <button type="button" class="btn btn-primary" (click)="eventoBtnValidarBuilder()">Validar</button>
+
+        </form>
+
+      </div>
+    </div>
+
 
   </div>
 </div>
