@@ -1,1 +1,283 @@
-<p>gestion-persona-ng-model works!</p>
+<form novalidate #formaPersona="ngForm">
+
+  <div class="card border-primary">
+    <div class="card-header text-white bg-primary">
+      <h6>GESTI&Oacute;N PERSONA (NGMODEL)</h6>
+    </div>
+    <div class="card-body">
+
+      <div class="row mb-2">
+        <div class="col-12 col-md-3 text-left">
+          <button type="button" class="btn btn-link btn-block"
+                  (click)="eventoBtnNuevo(formaPersona)">
+            Nuevo
+          </button>
+        </div>
+        <div class="col-12 col-md-3 offset-md-6 text-right">
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Nro. Documento:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" maxlength="15"
+                     name="dni" required [(ngModel)]="persona.dni" #dni="ngModel"
+                     [ngClass]="{'is-invalid': dni.errors?.['required'] && dni.touched}"
+                     placeholder="Escribir nro documento"
+                     ngbTooltip="Nro. Documento" placement="top">
+              <div class="text-danger" *ngIf="dni.errors?.['required'] && dni.touched">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Nombre:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" maxlength="50"
+                     name="nombre" required [(ngModel)]="persona.nombre" #nombre="ngModel"
+                     [ngClass]="{'is-invalid': nombre.errors?.['required'] && nombre.touched}"
+                     placeholder="Escribir nombre"
+                     ngbTooltip="Nombre" placement="top">
+              <div class="text-danger" *ngIf="nombre.errors?.['required'] && nombre.touched">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Apellido:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" maxlength="50"
+                     name="apellido" required [(ngModel)]="persona.apellido" #apellido="ngModel"
+                     [ngClass]="{'is-invalid': apellido.errors?.['required'] && apellido.touched}"
+                     placeholder="Escribir apellido"
+                     ngbTooltip="Apellido" placement="top">
+              <div class="text-danger" *ngIf="apellido.errors?.['required'] && apellido.touched">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Edad:</label>
+            <div class="col-sm-9">
+              <input type="number" class="form-control" min="1" max="100"
+                     name="edad" required [(ngModel)]="persona.edad" #edad="ngModel"
+                     [ngClass]="{'is-invalid': edad.errors?.['required'] && edad.touched}"
+                     placeholder="Escribir edad"
+                     ngbTooltip="Edad" placement="top">
+              <div class="text-danger" *ngIf="edad.errors?.['required'] && edad.touched">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Sexo:</label>
+            <div class="col-sm-9">
+              <select class="form-control"
+                      name="sexo" required [(ngModel)]="persona.sexo" #sexo="ngModel"
+                      [ngClass]="{'is-invalid': sexo.errors?.['required'] && sexo.touched}"
+                      ngbTooltip="Seleccionar sexo" placement="top">
+                <option value="">Seleccionar</option>
+                <option [value]="item" *ngFor="let item of listSexos; let i= index">
+                  {{ item }}</option>
+              </select>
+              <div class="text-danger" *ngIf="sexo.errors?.['required'] && sexo.touched">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Fecha Nacimiento:</label>
+            <div class="col-sm-9">
+              <div class="input-group">
+                <input class="form-control" ngbDatepicker #d="ngbDatepicker"
+                       name="fechaNacimiento" required [(ngModel)]="persona.fechaNacimiento" #fechaNacimiento="ngModel"
+                       [ngClass]="{'is-invalid': fechaNacimiento.errors?.['required'] && fechaNacimiento.touched}"
+                       placeholder="DD/MM/AAAA"
+                       readonly
+                       ngbTooltip="Seleccionar fecha nacimiento" placement="top">
+                <div class="input-group-append">
+                  <button class="btn btn-primary btn-sm" (click)="d.toggle()" type="button">
+                    <i class="far fa-calendar-alt"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="text-danger" *ngIf="fechaNacimiento.errors?.['required'] && fechaNacimiento.touched">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Celular:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control"
+                     name="celular" required [(ngModel)]="persona.celular" #celular="ngModel"
+                     [ngClass]="{'is-invalid': celular.errors?.['required'] && celular.touched}"
+                     placeholder="Escribir celular"
+                     ngbTooltip="Celular" placement="top">
+              <div class="text-danger" *ngIf="celular.errors?.['required'] && celular.touched">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Gusto:</label>
+            <div class="col-sm-9">
+              <select class="form-control"
+                      name="gustos" required [(ngModel)]="persona.gustos" #gustos="ngModel"
+                      [ngClass]="{'is-invalid': gustos.errors?.['required'] && gustos.touched}"
+                      ngbTooltip="Seleccionar gusto" placement="top">
+                <option value="">Seleccionar</option>
+                <option [value]="item" *ngFor="let item of listGustos; let i= index">
+                  {{ item }}</option>
+              </select>
+              <div class="text-danger" *ngIf="gustos.errors?.['required'] && gustos.touched">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Nota:</label>
+            <div class="col-sm-9">
+              <input type="number" class="form-control" min="0" max="20"
+                     name="notas" required [(ngModel)]="persona.notas" #notas="ngModel"
+                     [ngClass]="{'is-invalid': notas.errors?.['required'] && notas.touched}"
+                     placeholder="Escribir nota"
+                     ngbTooltip="Nota" placement="top">
+              <div class="text-danger" *ngIf="notas.errors?.['required'] && notas.touched">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Cargo:</label>
+            <div class="col-sm-9">
+              <select class="form-control"
+                      name="cargos" required [(ngModel)]="persona.cargos" #cargos="ngModel"
+                      [ngClass]="{'is-invalid': cargos.errors?.['required'] && cargos.touched}"
+                      ngbTooltip="Seleccionar cargo" placement="top">
+                <option value="">Seleccionar</option>
+                <option [value]="item" *ngFor="let item of listCargos; let i= index">
+                  {{ item }}</option>
+              </select>
+              <div class="text-danger" *ngIf="cargos.errors?.['required'] && cargos.touched">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-4 offset-md-4 text-center">
+          <button type="button" class="btn btn-primary"
+                  (click)="eventoBtnGuardar(formaPersona)">
+            <i class="fas fa-save text-white"></i> Guardar
+          </button>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-12 col-md-10 offset-md-1">
+          <app-mensaje-alerta [mensajeAlerta]="mensajeAlerta"></app-mensaje-alerta>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-12 col-md-12">
+          <h6>Relaci&oacute;n de Personas</h6>
+          <hr>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-12">
+
+          <p-table [value]="personas" [paginator]="true" [rows]="5" [resizableColumns]="true"
+                   [tableStyle]="{'font-size':'13px', 'table-layout':'auto'}">
+            <ng-template pTemplate="header" let-columns>
+              <tr class="text-center">
+                <th>Nro. Documento</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Sexo</th>
+                <th>Fecha Nacimiento</th>
+                <th>Acciones</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-persona -rowIndex="rowIndex">
+              <tr>
+                <td>{{ persona.dni }}</td>
+                <td>{{ persona.nombre }}</td>
+                <td>{{ persona.apellido }}</td>
+                <td>{{ persona.edad }}</td>
+                <td>{{ persona.sexo }}</td>
+                <td>{{ persona.fechaNacimiento }}</td>
+                <td class="text-center">
+                  <button type="button" class="btn btn-primary btn-sm mr-1"
+                          (click)="eventoBtnVerDetalleModal(persona)" ngbTooltip="Ver detalle modal" placement="top">
+                    <i class="fas fa-eye text-white"></i>
+                  </button>
+                  <button type="button" class="btn btn-primary btn-sm mr-1"
+                          (click)="eventoBtnVerDetalleUrl(persona)" ngbTooltip="Ver detalle URL" placement="top">
+                    <i class="fas fa-eye text-white"></i>
+                  </button>
+                  <button type="button" class="btn btn-primary btn-sm mr-1"
+                          (click)="eventoBtnVerDetalleLocalStorage(persona)" ngbTooltip="Ver detalle localstorage" placement="top">
+                    <i class="fas fa-eye text-white"></i>
+                  </button>
+                  <button type="button" class="btn btn-primary btn-sm mr-1"
+                          (click)="eventoBtnVerDetalleNavegacion(persona)" ngbTooltip="Ver detalle navegación" placement="top">
+                    <i class="fas fa-eye text-white"></i>
+                  </button>
+                  <button type="button" class="btn btn-primary btn-sm mr-1"
+                          (click)="eventoBtnEditar(persona.id)" ngbTooltip="Editar" placement="top">
+                    <i class="fas fa-edit text-white"></i>
+                  </button>
+                  <button type="button" class="btn btn-danger btn-sm"
+                          (click)="eventoBtnEliminar(persona.id, formaPersona)" ngbTooltip="Eliminar" placement="top">
+                    <i class="fas fa-trash text-white"></i>
+                  </button>
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr>
+                <td [attr.colspan]="7" class="text-center">
+                  No se han encontrado resultados de b&uacute;squeda
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</form>

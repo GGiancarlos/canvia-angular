@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-detalle-maqueta',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalleMaquetaComponent implements OnInit {
 
-  constructor() { }
+  constructor(public activeModal: NgbActiveModal) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
+
 
 }

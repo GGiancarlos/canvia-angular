@@ -1,1 +1,106 @@
-<p>detalle works!</p>
+<div class="modal-header bg-primary border-primary text-white" ngbAutofocus>
+  <strong>DETALLE PERSONA</strong>
+  <button type="button" class="close" (click)="activeModal.close('Close click')">
+    <i class="fas fa-times text-white"></i>
+  </button>
+</div>
+<div class="modal-body">
+
+  <div class="row">
+
+    <div class="col-6 col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Nro. Documento:</label>
+        <div class="col-sm-7">
+          <label>{{persona.dni}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-6">
+
+    </div>
+    <div class="col-6 col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Nombre:</label>
+        <div class="col-sm-7">
+          <label>{{persona.nombre}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Apellido:</label>
+        <div class="col-sm-7">
+          <label>{{persona.apellido}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Edad:</label>
+        <div class="col-sm-7">
+          <label>{{persona.edad}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Sexo:</label>
+        <div class="col-sm-7">
+          <label>{{persona.sexo}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Fecha Nacimiento:</label>
+        <div class="col-sm-7">
+          <label>{{persona.fechaNacimiento}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Celular:</label>
+        <div class="col-sm-7">
+          <label>{{persona.celular}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Gusto:</label>
+        <div class="col-sm-7">
+          <label>{{persona.gustos}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Nota:</label>
+        <div class="col-sm-7">
+          <label>{{persona.notas}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Cargo:</label>
+        <div class="col-sm-7">
+          <label>{{persona.cargos}}</label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="modal-footer">
+    <div class="col text-center">
+      <button type="button" class="btn btn-primary"
+              (click)="activeModal.close('Close click')">
+        Cancelar
+      </button>
+    </div>
+  </div>
+
+</div>

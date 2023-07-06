@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {PersonaModel} from "../../../../../../../models/persona.model";
+import {Router} from "@angular/router";
+import {ELIMINARFILTRO, OBTENERFILTRO} from "../../../../../../../utils/utilitarios";
 
 @Component({
   selector: 'app-detalle-local-storage',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalleLocalStorageComponent implements OnInit {
 
-  constructor() { }
+  persona: PersonaModel = new PersonaModel();
 
-  ngOnInit(): void {
+  constructor(private router: Router) {
+
+    this.persona = OBTENERFILTRO();
+
+  }
+
+  ngOnInit() {
+  }
+
+  eventoBtnRegresar(){
+    ELIMINARFILTRO();
+    this.router.navigateByUrl('rrhh/gestion-persona');
   }
 
 }

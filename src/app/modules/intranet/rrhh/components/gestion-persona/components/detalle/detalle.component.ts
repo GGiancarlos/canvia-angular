@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {PersonaModel} from "../../../../../../../models/persona.model";
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-detalle',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalleComponent implements OnInit {
 
-  constructor() { }
+  /* Inicio declaracion */
+  @Input() persona: PersonaModel = new PersonaModel();
+  @Output() eventoBtnVerDetalleModal: EventEmitter<any> = new EventEmitter();
+  /* Fin declaracion */
 
-  ngOnInit(): void {
+  constructor(public activeModal: NgbActiveModal) { }
+
+  ngOnInit() {
   }
 
 }

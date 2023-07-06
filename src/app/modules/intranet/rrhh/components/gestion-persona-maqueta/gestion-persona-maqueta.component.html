@@ -1,1 +1,257 @@
-<p>gestion-persona-maqueta works!</p>
+<form>
+
+  <div class="card border-primary">
+    <div class="card-header text-white bg-primary">
+      <h6>GESTI&Oacute;N PERSONA (MAQUETA)</h6>
+    </div>
+    <div class="card-body">
+
+      <div class="row mb-2">
+        <div class="col-12 col-md-3 text-left">
+          <button type="button" class="btn btn-link btn-block"
+                  (click)="eventoBtnNuevo()">
+            Nuevo
+          </button>
+        </div>
+        <div class="col-12 col-md-3 offset-md-6 text-right">
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Nro. Documento:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" maxlength="15"
+                     name="dni" required
+                     placeholder="Escribir nro documento">
+              <div class="text-danger">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Nombre:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" maxlength="50"
+                     name="nombre" required
+                     placeholder="Escribir nombre">
+              <div class="text-danger">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Apellido:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" maxlength="50"
+                     name="apellido" required
+                     placeholder="Escribir apellido">
+              <div class="text-danger">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Edad:</label>
+            <div class="col-sm-9">
+              <input type="number" class="form-control" min="1" max="100"
+                     name="edad" required
+                     placeholder="Escribir edad">
+              <div class="text-danger">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Sexo:</label>
+            <div class="col-sm-9">
+              <select class="form-control"
+                      name="sexo" required>
+                <option value="">Seleccionar</option>
+              </select>
+              <div class="text-danger">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Fecha Nacimiento:</label>
+            <div class="col-sm-9">
+              <div class="input-group">
+                <input class="form-control" ngbDatepicker #d="ngbDatepicker"
+                       name="fechaNacimiento" required
+                       placeholder="DD/MM/AAAA"
+                       readonly>
+                <div class="input-group-append">
+                  <button class="btn btn-primary btn-sm" (click)="d.toggle()" type="button">
+                    <i class="far fa-calendar-alt"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="text-danger">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Celular:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control"
+                     name="celular" required
+                     placeholder="Escribir celular">
+              <div class="text-danger">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Gusto:</label>
+            <div class="col-sm-9">
+              <select class="form-control"
+                      name="gustos" required>
+                <option value="">Seleccionar</option>
+              </select>
+              <div class="text-danger">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Nota:</label>
+            <div class="col-sm-9">
+              <input type="number" class="form-control" min="0" max="20"
+                     name="notas" required
+                     placeholder="Escribir nota">
+              <div class="text-danger">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label col-form-label-sm">Cargo:</label>
+            <div class="col-sm-9">
+              <select class="form-control"
+                      name="cargos" required>
+                <option value="">Seleccionar</option>
+              </select>
+              <div class="text-danger">
+                Campo obligatorio
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-4 offset-md-4 text-center">
+          <button type="button" class="btn btn-primary"
+                  (click)="eventoBtnGuardar()">
+            <i class="fas fa-save text-white"></i> Guardar
+          </button>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-12 col-md-10 offset-md-1">
+          MENSAJE ALERTAS
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-12 col-md-12">
+          <h6>Relaci&oacute;n de Personas</h6>
+          <hr>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-12">
+
+          <p-table [value]="personas" [paginator]="true" [rows]="5" [resizableColumns]="true"
+                   [tableStyle]="{'font-size':'13px', 'table-layout':'auto'}">
+            <ng-template pTemplate="header" let-columns>
+              <tr class="text-center">
+                <th>Nro. Documento</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Sexo</th>
+                <th>Fecha Nacimiento</th>
+                <th>Acciones</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-persona -rowIndex="rowIndex">
+              <tr>
+                <td>{{ persona.dni }}</td>
+                <td>{{ persona.nombre }}</td>
+                <td>{{ persona.apellido }}</td>
+                <td>{{ persona.edad }}</td>
+                <td>{{ persona.sexo }}</td>
+                <td>{{ persona.fechaNacimiento }}</td>
+                <td class="text-center">
+                  <button type="button" class="btn btn-primary btn-sm mr-1"
+                          (click)="eventoBtnVerDetalleModal()" ngbTooltip="Ver detalle modal" placement="top">
+                    <i class="fas fa-eye text-white"></i>
+                  </button>
+                  <button type="button" class="btn btn-primary btn-sm mr-1"
+                          (click)="eventoBtnVerDetalleUrl()" ngbTooltip="Ver detalle URL" placement="top">
+                    <i class="fas fa-eye text-white"></i>
+                  </button>
+                  <button type="button" class="btn btn-primary btn-sm mr-1"
+                          (click)="eventoBtnVerDetalleLocalStorage()" ngbTooltip="Ver detalle localstorage" placement="top">
+                    <i class="fas fa-eye text-white"></i>
+                  </button>
+                  <button type="button" class="btn btn-primary btn-sm mr-1"
+                          (click)="eventoBtnVerDetalleNavegacion()" ngbTooltip="Ver detalle navegación" placement="top">
+                    <i class="fas fa-eye text-white"></i>
+                  </button>
+                  <button type="button" class="btn btn-primary btn-sm mr-1"
+                          (click)="eventoBtnEditar()" ngbTooltip="Editar" placement="top">
+                    <i class="fas fa-edit text-white"></i>
+                  </button>
+                  <button type="button" class="btn btn-danger btn-sm"
+                          (click)="eventoBtnEliminar()" ngbTooltip="Eliminar" placement="top">
+                    <i class="fas fa-trash text-white"></i>
+                  </button>
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr>
+                <td [attr.colspan]="7" class="text-center">
+                  No se han encontrado resultados de b&uacute;squeda
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</form>

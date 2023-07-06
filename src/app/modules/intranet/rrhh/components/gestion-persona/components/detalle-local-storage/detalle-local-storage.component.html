@@ -1,1 +1,105 @@
-<p>detalle-local-storage works!</p>
+<div class="card border-primary">
+  <div class="card-header text-white bg-primary">
+    <h6>DETALLE PERSONA (LOCALSTORAGE)</h6>
+  </div>
+  <div class="card-body">
+
+    <div class="row">
+
+      <div class="col-6 col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Nro. Documento:</label>
+          <div class="col-sm-7">
+            <label>{{persona.dni}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-6">
+
+      </div>
+      <div class="col-6 col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Nombre:</label>
+          <div class="col-sm-7">
+            <label>{{persona.nombre}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Apellido:</label>
+          <div class="col-sm-7">
+            <label>{{persona.apellido}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Edad:</label>
+          <div class="col-sm-7">
+            <label>{{persona.edad}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Sexo:</label>
+          <div class="col-sm-7">
+            <label>{{persona.sexo}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Fecha Nacimiento:</label>
+          <div class="col-sm-7">
+            <label>{{persona.fechaNacimiento}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Celular:</label>
+          <div class="col-sm-7">
+            <label>{{persona.celular}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Gusto:</label>
+          <div class="col-sm-7">
+            <label>{{persona.gustos}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Nota:</label>
+          <div class="col-sm-7">
+            <label>{{persona.notas}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-6">
+        <div class="form-group row">
+          <label class="col-sm-5 col-form-label col-form-label-sm font-weight-bold">Cargo:</label>
+          <div class="col-sm-7">
+            <label>{{persona.cargos}}</label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-4 offset-md-4 text-center">
+        <button type="button" class="btn btn-primary"
+                (click)="eventoBtnRegresar()">
+          <i class="fas fa-arrow-left"></i> Regresar
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

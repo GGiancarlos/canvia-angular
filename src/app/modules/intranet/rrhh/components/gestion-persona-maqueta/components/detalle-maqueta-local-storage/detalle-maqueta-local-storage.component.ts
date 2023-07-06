@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-detalle-maqueta-local-storage',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalleMaquetaLocalStorageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+  }
+
+  eventoBtnRegresar(){
+    this.router.navigateByUrl('rrhh/gestion-persona-maqueta');
   }
 
 }

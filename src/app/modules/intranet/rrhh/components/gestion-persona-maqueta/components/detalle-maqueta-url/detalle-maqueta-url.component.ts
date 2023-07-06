@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-detalle-maqueta-url',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalleMaquetaUrlComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
+
+  eventoBtnRegresar(){
+    this.router.navigate(['/rrhh/gestion-persona-maqueta']);
+  }
+
 
 }

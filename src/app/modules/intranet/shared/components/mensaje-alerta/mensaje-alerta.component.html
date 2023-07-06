@@ -1,1 +1,3 @@
-<p>mensaje-alerta works!</p>
+<ngb-alert *ngIf="mensajeAlerta"  type="{{ mensajeAlerta.clase }}" (close)="close($event)">
+  <div [innerHtml]="mensajeAlerta.mensaje"></div>
+</ngb-alert>
