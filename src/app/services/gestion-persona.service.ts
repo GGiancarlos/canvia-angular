@@ -39,9 +39,14 @@ export class GestionPersonaService {
 
   actualizarPersona(persona: PersonaModel): Observable<PersonaModel> {
     const parametro = JSON.stringify(persona);
-    const myHeader = new HttpHeaders();
-    myHeader.set('Content-Type', 'application/json');
-    return this.http.put<PersonaModel>(`${environment.urlBase}/personas/${persona.id}`, persona, {headers: myHeader});
+
+    const requestOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+
+    return this.http.put<PersonaModel>(`${environment.urlBase}/personas/${persona.id}`, persona, requestOptions);
   }
 
   eliminarPersona(id: number): Observable<any> {
